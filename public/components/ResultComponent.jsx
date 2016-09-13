@@ -1,18 +1,23 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+
 // ResultComponent is for single query result, it will be populated in ResultPanel
+
+const style = {
+  margin: 20,
+};
+
 var ResultComponent = React.createClass({
   render: function () {
     return (
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">{this.props.title}</h3><a href={this.props.linkage}>Read more</a>
-        </div>
-        <div className="panel-body">
+      <Card style={style}>
+        <CardTitle title={this.props.title} subtitle={this.props.linkage} />
+        <CardText>
           {this.props.content}
-        </div>
-      </div>
+        </CardText>
+      </Card>
     );
   }
 });
